@@ -5,6 +5,9 @@ import { request } from "http";
 
 const app = Fastify({ logger: true });
 
+app.register(require('@fastify/cors'));
+
+
 app.setErrorHandler((error, request, reply) => {
     reply.code(400).send({ message: error.message });
 })
